@@ -41,7 +41,10 @@ const CVBuilder = () => {
 
     // Validation
     if (name === "fullName" && !validateName(value)) {
-      setErrors((prev) => ({ ...prev, fullName: "Invalid name (2-50 characters)" }));
+      setErrors((prev) => ({
+        ...prev,
+        fullName: "Invalid name (2-50 characters)",
+      }));
     } else if (name === "email" && !validateEmail(value)) {
       setErrors((prev) => ({ ...prev, email: "Invalid email format" }));
     } else if (name === "phone" && !validatePhone(value)) {
@@ -61,7 +64,9 @@ const CVBuilder = () => {
 
     // Date validation for education
     if (field === "endDate") {
-      const selectedStartDate = formData.education.find((edu) => edu.id === id)?.startDate;
+      const selectedStartDate = formData.education.find(
+        (edu) => edu.id === id
+      )?.startDate;
       if (selectedStartDate && new Date(value) < new Date(selectedStartDate)) {
         setErrors((prev) => ({
           ...prev,
@@ -86,7 +91,9 @@ const CVBuilder = () => {
 
     // Date validation for experience
     if (field === "endDate") {
-      const selectedStartDate = formData.experience.find((exp) => exp.id === id)?.startDate;
+      const selectedStartDate = formData.experience.find(
+        (exp) => exp.id === id
+      )?.startDate;
       if (selectedStartDate && new Date(value) < new Date(selectedStartDate)) {
         setErrors((prev) => ({
           ...prev,
@@ -170,7 +177,7 @@ const CVBuilder = () => {
     }
 
     // Validate for any existing errors
-    if (Object.keys(errors).some(key => errors[key])) {
+    if (Object.keys(errors).some((key) => errors[key])) {
       setSnackbar({
         open: true,
         message: "Please fix all errors before saving.",
@@ -199,62 +206,61 @@ const CVBuilder = () => {
   const handleDownload = async () => {
     try {
       if (!formData.fullName || !formData.email || !formData.phone) {
-        setSnackbar({ 
-          open: true, 
-          message: "Please fill in all required fields before downloading.", 
-          severity: "error" 
+        setSnackbar({
+          open: true,
+          message: "Please fill in all required fields before downloading.",
+          severity: "error",
         });
         return;
       }
 
       setPreviewMode(true);
-      await new Promise(resolve => setTimeout(resolve, 1000));
+      await new Promise((resolve) => setTimeout(resolve, 1000));
 
       const element = document.getElementById("cv-preview");
-      
+
       if (!element) {
         throw new Error("Preview element not found");
       }
 
       const opt = {
         margin: [0.5, 0.5, 0.5, 0.5],
-        filename: `${formData.fullName.replace(/\s+/g, '_')}_CV.pdf`,
-        image: { type: 'jpeg', quality: 1 },
-        html2canvas: { 
+        filename: `${formData.fullName.replace(/\s+/g, "_")}_CV.pdf`,
+        image: { type: "jpeg", quality: 1 },
+        html2canvas: {
           scale: 2,
           useCORS: true,
           letterRendering: true,
           scrollY: 0,
-          windowWidth: element.offsetWidth
+          windowWidth: element.offsetWidth,
         },
-        jsPDF: { 
-          unit: 'mm', 
-          format: 'a4', 
-          orientation: 'portrait',
-          compress: true
-        }
+        jsPDF: {
+          unit: "mm",
+          format: "a4",
+          orientation: "portrait",
+          compress: true,
+        },
       };
 
-      setSnackbar({ 
-        open: true, 
-        message: "Preparing your CV for download...", 
-        severity: "info" 
+      setSnackbar({
+        open: true,
+        message: "Preparing your CV for download...",
+        severity: "info",
       });
 
       await html2pdf().set(opt).from(element).save();
 
-      setSnackbar({ 
-        open: true, 
-        message: "CV downloaded successfully!", 
-        severity: "success" 
+      setSnackbar({
+        open: true,
+        message: "CV downloaded successfully!",
+        severity: "success",
       });
-
     } catch (error) {
       console.error("PDF download error:", error);
-      setSnackbar({ 
-        open: true, 
-        message: "Error downloading PDF. Please try again.", 
-        severity: "error" 
+      setSnackbar({
+        open: true,
+        message: "Error downloading PDF. Please try again.",
+        severity: "error",
       });
     } finally {
       setPreviewMode(false);
@@ -290,10 +296,12 @@ const CVBuilder = () => {
               <Button variant="contained" color="success" onClick={handleSave}>
                 Save CV
               </Button>
-              <Button 
-                variant="contained" 
+              <Button
+                variant="contained"
                 onClick={handleDownload}
-                disabled={!formData.fullName || !formData.email || !formData.phone}
+                disabled={
+                  !formData.fullName || !formData.email || !formData.phone
+                }
               >
                 Download PDF
               </Button>

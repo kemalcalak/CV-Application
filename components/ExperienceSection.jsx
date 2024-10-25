@@ -27,7 +27,11 @@ const ExperienceSection = ({
     <CardContent>
       <Box sx={{ display: "flex", justifyContent: "space-between", mb: 2 }}>
         <Typography variant="h5">Experience</Typography>
-        <Button variant="contained" startIcon={<AddIcon />} onClick={addExperience}>
+        <Button
+          variant="contained"
+          startIcon={<AddIcon />}
+          onClick={addExperience}
+        >
           Add Experience
         </Button>
       </Box>
@@ -45,7 +49,9 @@ const ExperienceSection = ({
                 fullWidth
                 label="Company"
                 value={exp.company}
-                onChange={(e) => handleExperienceChange(exp.id, "company", e.target.value)}
+                onChange={(e) =>
+                  handleExperienceChange(exp.id, "company", e.target.value)
+                }
                 error={!!errors[`experience_${exp.id}_company`]}
                 helperText={errors[`experience_${exp.id}_company`]}
                 required
@@ -56,46 +62,58 @@ const ExperienceSection = ({
                 fullWidth
                 label="Position"
                 value={exp.position}
-                onChange={(e) => handleExperienceChange(exp.id, "position", e.target.value)}
+                onChange={(e) =>
+                  handleExperienceChange(exp.id, "position", e.target.value)
+                }
                 error={!!errors[`experience_${exp.id}_position`]}
                 helperText={errors[`experience_${exp.id}_position`]}
                 required
               />
             </Grid>
             <Grid item xs={12} md={6}>
-            <TextField
-  fullWidth
-  label="Start Date"
-  type="date"
-  value={exp.startDate}
-  onChange={(e) => handleExperienceChange(exp.id, "startDate", e.target.value)}
-  InputLabelProps={{ shrink: true }}
-  inputProps={{ max: today }}  
-  error={!!errors[`experience_${exp.id}_startDate`]}
-  helperText={errors[`experience_${exp.id}_startDate`]}
-  required
-/>
+              <TextField
+                fullWidth
+                label="Start Date"
+                type="date"
+                value={exp.startDate}
+                onChange={(e) =>
+                  handleExperienceChange(exp.id, "startDate", e.target.value)
+                }
+                InputLabelProps={{ shrink: true }}
+                inputProps={{ max: today }}
+                error={!!errors[`experience_${exp.id}_startDate`]}
+                helperText={errors[`experience_${exp.id}_startDate`]}
+                required
+              />
             </Grid>
             <Grid item xs={12} md={6}>
-            <TextField
-  fullWidth
-  label="End Date"
-  type="date"
-  value={exp.endDate}
-  onChange={(e) => handleExperienceChange(exp.id, "endDate", e.target.value)}
-  InputLabelProps={{ shrink: true }}
-  inputProps={{ max: today }}  
-  disabled={exp.current}
-  error={!!errors[`experience_${exp.id}_endDate`]}
-  helperText={errors[`experience_${exp.id}_endDate`]}
-/>
+              <TextField
+                fullWidth
+                label="End Date"
+                type="date"
+                value={exp.endDate}
+                onChange={(e) =>
+                  handleExperienceChange(exp.id, "endDate", e.target.value)
+                }
+                InputLabelProps={{ shrink: true }}
+                inputProps={{ max: today }}
+                disabled={exp.current}
+                error={!!errors[`experience_${exp.id}_endDate`]}
+                helperText={errors[`experience_${exp.id}_endDate`]}
+              />
             </Grid>
             <Grid item xs={12}>
               <FormControlLabel
                 control={
                   <Checkbox
                     checked={exp.current}
-                    onChange={(e) => handleExperienceChange(exp.id, "current", e.target.checked)}
+                    onChange={(e) =>
+                      handleExperienceChange(
+                        exp.id,
+                        "current",
+                        e.target.checked
+                      )
+                    }
                   />
                 }
                 label="Currently working here"
@@ -108,7 +126,9 @@ const ExperienceSection = ({
                 rows={4}
                 label="Description"
                 value={exp.description}
-                onChange={(e) => handleExperienceChange(exp.id, "description", e.target.value)}
+                onChange={(e) =>
+                  handleExperienceChange(exp.id, "description", e.target.value)
+                }
                 error={!!errors[`experience_${exp.id}_description`]}
                 helperText={errors[`experience_${exp.id}_description`]}
               />

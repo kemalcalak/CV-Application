@@ -14,7 +14,6 @@ import {
 } from "@mui/material";
 import { Add as AddIcon, Delete as DeleteIcon } from "@mui/icons-material";
 
-
 const today = new Date().toISOString().split("T")[0];
 
 const EducationSection = ({
@@ -88,18 +87,20 @@ const EducationSection = ({
               />
             </Grid>
             <Grid item xs={12} md={6}>
-            <TextField
-  fullWidth
-  label="End Date"
-  type="date"
-  value={edu.endDate}
-  onChange={(e) => handleEducationChange(edu.id, "endDate", e.target.value)}
-  InputLabelProps={{ shrink: true }}
-  inputProps={{ max: today }}  
-  disabled={edu.current}  
-  error={!!errors[`education_${edu.id}_endDate`]}
-  helperText={errors[`education_${edu.id}_endDate`]}
-/>
+              <TextField
+                fullWidth
+                label="End Date"
+                type="date"
+                value={edu.endDate}
+                onChange={(e) =>
+                  handleEducationChange(edu.id, "endDate", e.target.value)
+                }
+                InputLabelProps={{ shrink: true }}
+                inputProps={{ max: today }}
+                disabled={edu.current}
+                error={!!errors[`education_${edu.id}_endDate`]}
+                helperText={errors[`education_${edu.id}_endDate`]}
+              />
             </Grid>
             <Grid item xs={12}>
               <FormControlLabel
