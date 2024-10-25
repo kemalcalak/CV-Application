@@ -1,4 +1,4 @@
-import CVBuilder from "../components/CVBuilder"
+import CVBuilder from "./CVBuilder"
 
 function App() {
   return (
