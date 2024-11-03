@@ -1,7 +1,5 @@
 # CV-Application
 
-![Project Banner](https://res.cloudinary.com/dkqu2s9gz/image/upload/v1730660328/fhl8qo8zavywhjqhe1qw.png)
-
 This project is a CV application that allows users to create and manage their resumes. With a simple user interface, users can input their resume details and download a formatted PDF version.
 
 ## Table of Contents
@@ -59,6 +57,7 @@ The application will be available at `http://localhost:3000` in your browser.
 
 Here are some sample screenshots of the application:
 
-![Resume Input](https://res.cloudinary.com/dkqu2s9gz/image/upload/v1730660328/fhl8qo8zavywhjqhe1qw.png)
-![Resume Preview](https://res.cloudinary.com/dkqu2s9gz/image/upload/v1730660333/z9ujbvbry3tfgydzwkqk.png)
-
+<p align="center">
+  <img src="https://res.cloudinary.com/dkqu2s9gz/image/upload/v1730660328/fhl8qo8zavywhjqhe1qw.png" alt="Resume Input" width="400">
+  <img src="https://res.cloudinary.com/dkqu2s9gz/image/upload/v1730660333/z9ujbvbry3tfgydzwkqk.png" alt="Resume Preview" width="400">
+</p>
