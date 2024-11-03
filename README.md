@@ -8,8 +8,6 @@ This project is a CV application that allows users to create and manage their re
 - [Installation](#installation)
 - [Usage](#usage)
 - [Sample Screenshots](#sample-screenshots)
-- [Contributing](#contributing)
-- [License](#license)
 
 ## Features
 
