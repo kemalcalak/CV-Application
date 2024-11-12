@@ -21,8 +21,6 @@ This project is a CV application that allows users to create and manage their re
 The project leverages the following technologies:
 
 - **React**: For building a responsive and dynamic user interface.
-- **Node.js**: Used for the server side to manage backend logic.
-- **Express.js**: As a web application framework for handling server requests.
 - **JavaScript (ES6+)**: The primary programming language used to implement application logic.
 - **PDF Generation Library**: For converting user data into a downloadable PDF format.
 
